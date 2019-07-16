@@ -1,0 +1,9 @@
+{
+  "":"Set advert repeat interval in seconds",
+  "interval": 60,
+  "":"Add adverts down below",
+  "adverts": [
+	"<font color='#FFA500'>============ [ BKStudio ] ============</font><br>Сайт: <font color='green'>BKSTUDIO.COM.UA</font>",
+    "Хочешь создать свой сервер на RAGE Multiplayer? Заходи на BKSTUDIO.COM.UA"
+  ]
+}

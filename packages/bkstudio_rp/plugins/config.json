@@ -1,0 +1,11 @@
+{
+  "":"Set advert repeat interval in seconds",
+  "interval": 60,
+  "":"Add adverts down below",
+  "adverts": [
+	"<font color='#FFA500'>============ [ Объявления ] ============</font><br>Мы Вконтакте: <font color='green'>vk.com/gta5_ragemp</font><br>Сайт: <font color='green'>BKStudio.com.ua</font>",
+    "Данный сервер скачан с BKStudio.com.ua",
+    "Хочешь создай свой сервер на RAGE Multiplayer? Заходи на BKStudio.com.ua",
+	"Готовые сервера, скрипты, модели, плагины, маппинг и многое другое на BKStudio.com.ua"
+  ]
+}
