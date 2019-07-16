@@ -9,33 +9,33 @@ module.exports =
 
 		if((vehicle.customData.nolic !== undefined && seat === 0 && player.customData.item.lic_car !== undefined) && player.customData.member !== 8) {
 			player.call("alert", "error", "Вы не можете использовать данное авто");
-			return player.stopAnimation(); 
+			return player.stopAnimation();
 		}
 		if(vehicle.customData.nolic === undefined && (vehicle.customData.class === 1 && seat === 0 && player.customData.item.lic_car === undefined)) {
-			player.call("alert", "error", "У вас нет водитеслькоего удостоверения");
-			return player.stopAnimation(); 
+			player.call("alert", "error", "У вас нет водительского удостоверения");
+			return player.stopAnimation();
 		}
 		if(vehicle.customData.class === 2 && seat === 0 && player.customData.item.lic_fly === undefined) {
 			player.call("alert", "error", "У вас нет лицензии на воздушный транспорт");
-			return player.stopAnimation(); 
+			return player.stopAnimation();
 		}
 		if(vehicle.customData.class === 3 && seat === 0 && player.customData.item.lic_water === undefined) {
 			player.call("alert", "error", "У вас нет лицензии на водный транспорт");
-			return player.stopAnimation(); 
-		}			
+			return player.stopAnimation();
+		}
 		if(vehicle.customData.faction !== undefined && seat === 0 && vehicle.customData.faction !== player.customData.member) {
 			player.call("alert", "error", "Вы не состоите в данной фракции.");
-			return player.stopAnimation(); 
+			return player.stopAnimation();
 		}
 		if((vehicle.customData.faction != undefined && vehicle.customData.rang != undefined) && (vehicle.customData.rang > player.customData.rank) && seat == 0) {
 			player.call("alert", "error", "Вы не можете использовать данную технику");
-			return player.stopAnimation(); 
+			return player.stopAnimation();
 		}
 		if(vehicle.customData.job !== undefined && seat === 0 && player.customData.member !== 0) {
 			player.call("alert", "error", "Вы состоите во фракции.");
-			return player.stopAnimation(); 
+			return player.stopAnimation();
 		}
-	},	
+	},
 	"updateFuel" : (player, id, fuel) =>
 	{
 		if((vehicle = mp.vehicles.at(parseInt(id))) !== null) {
@@ -47,16 +47,16 @@ module.exports =
 			//console.log("Установка бензина " + fuel);
 			vehicle.customData.fuel = parseInt(fuel);
 		}
-	},	
+	},
 	"playerEnterVehicle" : (player, vehicle, seat) =>
 	{
 		console.log("playerEnterVehicle: " + seat);
 		if(seat === -1) {
-			if(((vehicle.customData.faction !== undefined) && (vehicle.customData.faction !== player.customData.member) || (vehicle.customData.rang !== undefined && vehicle.customData.rang > player.customData.rank)) || (vehicle.customData.job !== undefined && player.customData.member !== 0) || (vehicle.customData.class === 1 && player.customData.item.lic_car === 0) || (vehicle.customData.class === 2 && player.customData.item.lic_fly === 0) || (vehicle.customData.class === 3 && player.customData.item.lic_water === 0)) return player.removeFromVehicle(); 
+			if(((vehicle.customData.faction !== undefined) && (vehicle.customData.faction !== player.customData.member) || (vehicle.customData.rang !== undefined && vehicle.customData.rang > player.customData.rank)) || (vehicle.customData.job !== undefined && player.customData.member !== 0) || (vehicle.customData.class === 1 && player.customData.item.lic_car === 0) || (vehicle.customData.class === 2 && player.customData.item.lic_fly === 0) || (vehicle.customData.class === 3 && player.customData.item.lic_water === 0)) return player.removeFromVehicle();
 			if(vehicle.customData.job !== undefined)
 			{
 				if(player.customData.job.id !== vehicle.customData.job) return player.customFunc.setDialog(27, "Служба занятости", "", "Принять", "Отклонить", 1,"Вы желаете устроиться на работу " + game.jobs[vehicle.customData.job].name, vehicle.customData.job);
-				if(player.customData.job.id === vehicle.customData.job && vehicle.customData.job === 2) return player.customFunc.setDialog(30, "Тариф", "Цена за км", "Отклонить", "Принять", 1, "От $1 до $10", "");			
+				if(player.customData.job.id === vehicle.customData.job && vehicle.customData.job === 2) return player.customFunc.setDialog(30, "Тариф", "Цена за км", "Отклонить", "Принять", 1, "От $1 до $10", "");
 				if(player.customData.job.id === vehicle.customData.job && vehicle.customData.job === 3) {
 					if(player.customData.job.busId !== vehicle.id) {
 						if(player.customData.job.busId !== -1) {
